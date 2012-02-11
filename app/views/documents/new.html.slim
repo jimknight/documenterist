@@ -1,0 +1,2 @@
+= form_for @document, :url => documents_path, :html => { :class => :form } do |f|
+  = render :partial => "form", :locals => {:f => f}
