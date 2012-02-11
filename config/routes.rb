@@ -1,5 +1,10 @@
 Documenterist::Application.routes.draw do
-  resources :documents
+
+  resources :documents do
+    resources :comments do
+      resources :comments
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -17,6 +17,7 @@ development:
   encoding: unicode
   database: documenterist_development
   pool: 5
+  username: <%= `whoami` %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,6 +42,7 @@ test:
   encoding: unicode
   database: documenterist_test
   pool: 5
+  username: <%= `whoami` %>
 
 production:
   adapter: postgresql

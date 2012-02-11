@@ -1,0 +1,4 @@
+=form_for [@document, @comment] do |f|
+  =f.text_field :body
+  =f.hidden_field :parent_id, :value => params[:comment_id]
+  =f.submit
