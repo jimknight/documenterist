@@ -6,6 +6,8 @@
   = f.label :description, t("activerecord.attributes.document.description", :default => "Description"), :class => :label
   .input
     = f.text_area :description, :class => 'text_area'
+  .input
+    = f.file_field :attachment
 
 .form-actions
   button class="btn primary" type="submit" Save
