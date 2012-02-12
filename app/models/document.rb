@@ -12,7 +12,7 @@
 
 class Document < ActiveRecord::Base
   
-  validates :title, :presence => true
+  # validates :title, :presence => true
   has_and_belongs_to_many :comments
   mount_uploader :attachment, AttachmentUploader
   

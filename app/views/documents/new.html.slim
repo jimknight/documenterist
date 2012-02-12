@@ -1,2 +1,8 @@
-= form_for @document, :url => documents_path, :html => { :class => :form } do |f|
-  = render :partial => "form", :locals => {:f => f}
+div.empty_box
+
+  = form_for @document do |f|
+    span.file-wrapper
+      = f.label :attachment, "Add a new file",  :class => "btn btn-large btn-primary"
+      = f.file_field :attachment
+
+  h2 or drag a file here
