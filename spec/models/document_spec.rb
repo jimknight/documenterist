@@ -24,10 +24,4 @@ describe Document do
     @document.comments.create(:body => "new comment")
     @document.comments.size.should == 1 
   end
-  it "should require title" do
-    @document = Document.new
-    @document.should_not be_valid
-    @document.title = "doc title"
-    @document.should be_valid 
-  end
 end
