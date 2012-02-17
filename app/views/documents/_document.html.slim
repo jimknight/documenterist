@@ -1,8 +1,14 @@
-li
-  a
-    i.icon-play
-    span.time= "updated #{time_ago_in_words(document.updated_at)} ago"
-    span.file-name= document.file_name
-    span.comments-count= document.comments.size
+.well
+  .icon= image_tag "/icons/#{document.extension}_128.png", :height => 128
+  .file-name
+    a href="#"
+      h2= document.file_name
+    p= "updated #{time_ago_in_words(document.updated_at)} ago by Jim Knight"
+    span.label.label-info= pluralize(document.comments.size,"comment")
+  / div.span1
+  /   i.icon-play
+  / div.span2= "updated #{time_ago_in_words(document.updated_at)} ago"
+  / div.span4= document.file_name
+  / div.span2= pluralize(document.comments.size,"comment")
 
 

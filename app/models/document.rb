@@ -16,6 +16,10 @@ class Document < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
   mount_uploader :attachment, AttachmentUploader
   
+  def extension
+    file_name.split(".").last
+  end
+  
   def file_name
     if attachment.to_s
       File.basename(attachment.to_s)
