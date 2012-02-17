@@ -12,8 +12,16 @@
 
 class Document < ActiveRecord::Base
   
-  # validates :title, :presence => true
   has_and_belongs_to_many :comments
+  default_scope :order => 'updated_at DESC'
   mount_uploader :attachment, AttachmentUploader
+  
+  def file_name
+    if attachment.to_s
+      File.basename(attachment.to_s)
+    else
+      "<no file found>"
+    end
+  end
   
 end
