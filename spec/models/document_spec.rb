@@ -21,7 +21,8 @@ describe Document do
   end
   it "should have a comment as a child when it's created" do
     @document = Factory(:document)
-    @document.comments.create(:body => "new comment")
+    @document.comments.build(:body => "new comment")
+    @document.save!
     @document.comments.size.should == 1 
   end
 end

@@ -7,9 +7,10 @@ class CommentsController < ApplicationController
 
   def create
     @document = Document.find(params[:document_id])
-    @comment = @document.comments.build(params[:comment])
+    @comment = Comment.new(params[:comment])
     if @comment.save
-      redirect_to @document, :notice => "Comment saved"
+      @document.comments << @comment # not sure why build never works for me in controller
+      redirect_to documents_path, :notice => "Comment saved"
     else
       render 'new'
     end
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
   
   def show
     @document = Document.find(params[:document_id])
-    @comment = @document.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
   
 end
