@@ -6,6 +6,7 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'carrierwave'
 gem 'jquery-rails'
 gem 'pg'
+gem 'pry'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
@@ -22,6 +23,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'capybara'
   gem 'factory_girl_rails'
   gem "rspec-rails", "~> 2.6"
 end
