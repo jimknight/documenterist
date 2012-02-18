@@ -1,11 +1,6 @@
-label class="label"= t("activerecord.attributes.document.title", :default => t("activerecord.labels.title", :default => "Title")) + ":"
-p= @document.title
-label class="label"= t("activerecord.attributes.document.description", :default => t("activerecord.labels.description", :default => "Description")) + ":"
-p= @document.description
-label class="label" File
-p= link_to @document.attachment.identifier, @document.attachment.url
-
-.form-actions
-  = link_to "Back", documents_path, :class => 'btn'
-  = link_to "Edit", edit_document_path(@document), :class => 'btn'
-  = link_to "Delete", document_path(@document), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn'
+h1= @document.file_name
+-@comments.each do |comment|  
+  -if comment.descendants.count == 0
+    li= "no children for #{comment.body} #{comment.id}"
+  -else
+    =nested_messages(comment.subtree.arrange)
