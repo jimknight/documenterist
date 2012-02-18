@@ -1,7 +1,7 @@
 .well
   .icon= image_tag "/icons/#{document.extension}_128.png", :height => 128
   .file-name
-    a href="#"
+    a href="#{document_path(document)}"
       h2= document.file_name
     p= "updated #{time_ago_in_words(document.updated_at)} ago by Jim Knight"
     span.label.label-info= pluralize(document.comments.size,"comment")

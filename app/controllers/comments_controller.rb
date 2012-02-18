@@ -1,15 +1,18 @@
 class CommentsController < ApplicationController
   
   def new
-    @document = Document.find(params[:document_id])
     @comment = Comment.new
   end
 
   def create
-    @document = Document.find(params[:document_id])
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(:body => params[:comment][:body])
+    if params[:comment][:document_id] == ""
+      @comment.parent_id = params[:comment][:comment_id]
+    else
+      @document = Document.find(params[:comment][:document_id])
+      @document.comments << @comment
+    end
     if @comment.save
-      @document.comments << @comment # not sure why build never works for me in controller
       redirect_to documents_path, :notice => "Comment saved"
     else
       render 'new'
