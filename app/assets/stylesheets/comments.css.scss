@@ -1,7 +1,12 @@
 .nested_messages {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .nested_messages .nested_messages .nested_messages .nested_messages {
   margin-left: 0;
 }
+
+.comment {float:left;
+  p {color:#999;}
+  }
+.comment-button {float:right;}

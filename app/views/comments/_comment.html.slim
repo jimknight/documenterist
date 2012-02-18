@@ -1,2 +1,8 @@
 - parent_id = comment.parent_id if comment.parent_id
-li=link_to "#{parent_id} Jim Knight wrote: \"#{comment.body}\" #{time_ago_in_words(comment.created_at)} ago", document_comment_path(@document,comment)
+.well
+  .comment
+    h2=comment.body
+    p="Jim Knight on #{comment.created}"
+  .comment-button
+    a.btn.btn-small href="#{new_comment_comment_path(comment)}"
+      ="Add comment"

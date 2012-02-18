@@ -12,6 +12,10 @@
 class Comment < ActiveRecord::Base
   
   has_ancestry
-  belongs_to :document  
+  belongs_to :document
+  
+  def created
+    created_at.strftime "%B %d, %Y, %l:%M %P"
+  end
   
 end
