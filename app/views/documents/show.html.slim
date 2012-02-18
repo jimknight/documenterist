@@ -4,6 +4,7 @@ p= link_to "Open file", @document.attachment.url, :class => 'btn btn-primary'
   -if comment.descendants.count == 0
     .well
       .comment= "no children for #{comment.body} #{comment.id}"
-      .comment-button=link_to "Comment", new_comment_comment_path(comment), :class => 'btn btn-small'
+      .comment-button=link_to "Comment", new_comment_comment_path(comment)
   -else
     =nested_messages(comment.subtree.arrange)
+=render "modal"

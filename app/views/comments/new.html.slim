@@ -1,5 +1,5 @@
 =form_for [@document, @comment] do |f|
-  =f.text_field :body
+  =f.text_area :body
   =f.hidden_field :document_id, :value => params[:document_id]
   =f.hidden_field :comment_id, :value => params[:comment_id]
   =f.submit

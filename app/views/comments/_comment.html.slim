@@ -4,5 +4,4 @@
     h2=comment.body
     p="Jim Knight on #{comment.created}"
   .comment-button
-    a.btn.btn-small href="#{new_comment_comment_path(comment)}"
-      ="Add comment"
+    a.btn.btn-small(data-comment-id="#{comment.id}") Add Comment
